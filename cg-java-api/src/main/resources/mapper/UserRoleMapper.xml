@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.forty.cg.mapper.UserRoleMapper">
+
+    <resultMap id="UserRoleMap" type="com.forty.cg.schema.UserRoleBase">
+        <result property="roleId" column="role_id" jdbcType="VARCHAR"/>
+        <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getUserRoleList"  resultMap="UserRoleMap">
+        SELECT user_role.role_id  as role_id, user_role.role_name as role_name
+        FROM user_role_map
+        LEFT JOIN user_role ON user_role_map.role_id = user_role.role_id
+        WHERE user_role_map.user_id = #{userId}
+    </select>
+
+</mapper>
