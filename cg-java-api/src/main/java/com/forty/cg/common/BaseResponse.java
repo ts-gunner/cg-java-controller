@@ -24,5 +24,8 @@ public class BaseResponse<T> implements Serializable {
         this(code, msg, null);
     }
 
+    public BaseResponse(T data) {
+        this(CodeStatus.SUCCESS.getCode(), CodeStatus.SUCCESS.getMessage(), data);
+    }
     public  BaseResponse(CodeStatus codeStatus) { this(codeStatus.getCode(), codeStatus.getMessage(), null); }
 }

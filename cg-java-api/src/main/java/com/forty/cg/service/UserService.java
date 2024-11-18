@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.forty.cg.common.BaseResponse;
 import com.forty.cg.schema.TokenData;
 
+import java.util.Map;
+
 public interface UserService {
 
-    BaseResponse<TokenData> userLogin(String openid);
+    Map<String, Object> userLogin(String openid);
 }

@@ -7,7 +7,19 @@
 
 cg-java-api是web项目
 
+| package      | version         | remark                                                      |
+| ------------ | --------------- | ----------------------------------------------------------- |
+| java SDK     | 17              |                                                             |
+| springboot   | 3.2.12-SNAPSHOT | web框架                                                     |
+| mybatis-plus | 3.5.9           | 操作数据库                                                  |
+| httpclient5  | 5.2.1           | http请求                                                    |
+| fastjson2    | 2.0.53          | JSON操作                                                    |
+| jjwt         | 0.12.5          | jwt加密，（注意：JDK17不支持0.9以前的版本，以及代码有差异） |
 
+# 实现的功能
+
+1.   Jwt加密解密
+2.   拦截器
 
 # Question Set
 
@@ -37,9 +49,7 @@ public interface UserPermissionMapper extends BaseMapper<AuthPermission> {
             #{roleId}
         </foreach>
         )
-
     </select>
 
 ```
 
-## IDEA debug模式下 console无法输入代码，显示只读状态

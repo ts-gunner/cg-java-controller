@@ -1,19 +1,14 @@
 spring:
   application:
     name: forty-nav-api
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cg_db
-    username: root
-    password: 123456
+  profiles:
+    active: dev
+
 server:
-  port: 8000
+  port: 8443
 
-logging:
-  level:
-    org:
-      mybatis: debug
-
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+setting:
+  wechat:
+    app-id: wx188064afe4d0e189
+    app-secret:  878524a515125108963cb3819a3e3494
+  secret-key: 55s9q11a!!4)s,1aA@DF(ScACX)A__=-sczc)dkD987s230a==
