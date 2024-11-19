@@ -5,14 +5,14 @@ import com.forty.cg.common.BaseResponse;
 import com.forty.cg.service.UserService;
 import com.forty.cg.service.WeChatService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -34,8 +34,11 @@ public class UserController {
     }
 
     @GetMapping("/wechat/get_user_info")
-    public BaseResponse<Map<String, Object>> getUserInfo(@RequestParam String openid) {
+    public BaseResponse<Map<String, Object>> getUserInfo(
+            @RequestAttribute("tokenData") Map<String, Object> tokenData,
+            @RequestParam String openid) {
+        System.out.println(MessageFormat.format("tokenData:{0}", tokenData));
 
-        return null;
+        return new BaseResponse<>();
     }
 }

@@ -53,3 +53,40 @@ public interface UserPermissionMapper extends BaseMapper<AuthPermission> {
 
 ```
 
+## 实现拦截器
+
+
+1. 实现HandlerInterceptor
+```java
+
+public class AuthInterceptor implements HandlerInterceptor {
+    @Autowired
+    GlobalConfiguration globalConfiguration;
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        String token = request.getHeader("Auth-Token");
+        // 向controller传入参数， controller使用 RequestAttribute("token") String token接收
+        request.setAttribute("token", token);
+        return true;
+    }
+}
+```
+2. 注册Interceptor
+```java
+
+
+@Configuration
+public class WebConfiguration implements WebMvcConfigurer {
+
+    @Autowired
+    private AuthInterceptor authInterceptor;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(authInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/user/wechat/login");
+    }
+}
+```

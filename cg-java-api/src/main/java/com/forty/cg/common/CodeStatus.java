@@ -6,6 +6,7 @@ public enum CodeStatus {
     PARAM_ERROR(400, "Param Error"),
     NOT_LOGIN(401, "Not Login"),
     NO_AUTH(40100, "No Auth"),
+    TOKEN_UNAVAILABLE(40101, "Token Unavailable"),
     SYSTEM_ERROR(500, "System Error");
 
     private final int code;

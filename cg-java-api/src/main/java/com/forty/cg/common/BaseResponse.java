@@ -10,7 +10,7 @@ public class BaseResponse<T> implements Serializable {
 
     private int code = CodeStatus.SUCCESS.getCode();
 
-    private String msg;
+    private String msg = "successfully";
 
     private T data;
 
