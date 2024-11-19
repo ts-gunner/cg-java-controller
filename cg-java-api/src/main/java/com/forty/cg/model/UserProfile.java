@@ -14,7 +14,6 @@ import java.sql.Date;
 @TableName("user_profile")
 public class UserProfile implements Serializable {
 
-    @TableId(value = "id", type = IdType.AUTO)
     private long id;
     /**
      * 微信提供当前小程序的openid，标识个人id
